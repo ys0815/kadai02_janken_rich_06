@@ -76,7 +76,7 @@ body {
 	background-color: var(--bg-color);
 	padding: var(--space-default);
 	height: 100vh;
-	background-image: url(../img/g-dot.png);
+	background-image: url(../img/ｂg-dot.png);
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
