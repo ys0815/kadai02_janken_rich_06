@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>キッズも更にニッコリ★じゃんけんアプリ</title>
+		<link rel="icon" href="./img/favicon.ico" sizes="32x32" />
+		<link rel="stylesheet" href="https://unpkg.com/ress@4.0.0/dist/ress.min.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<div class="jkp"><img src="./img/jyanken-top-rich.png" alt="" /></div>
+				<h1 class="speechBubble">
+					いざ…じゃんけん<span class="br-sp"><br /></span>rich勝負！
+				</h1>
+
+				<button id="count-reset">リセット</button>
+
+				<div class="cpu-hand">
+					<img id="cpuImage" src="./img/gu-rich.png" alt="CPUの手" />
+				</div>
+
+				<div class="score-board">
+					<div class="score">勝ち:&nbsp;<span id="win">0</span>&nbsp;回</div>
+					<div class="score">負け:&nbsp;<span id="lose">0</span>&nbsp;回</div>
+					<div class="score">あいこ:&nbsp;<span id="draw">0</span>&nbsp;回</div>
+				</div>
+
+				<div id="result"></div>
+
+				<div class="buttons">
+					<button data-choice="gu" class="gu">グー</button>
+					<button data-choice="choki" class="choki">チョキ</button>
+					<button data-choice="pa" class="pa">パー</button>
+				</div>
+
+				<button id="reset-button">もう一回勝負！</button>
+			</div>
+		</main>
+		<audio id="win-sound" src="./sound/win.mp3" preload="auto"></audio>
+		<audio id="lose-sound" src="./sound/lose.mp3" preload="auto"></audio>
+		<script src="./js/style.js"></script>
+	</body>
+</html>

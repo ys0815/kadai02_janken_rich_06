@@ -1,0 +1,354 @@
+/* --------------------------------
+  ルート変数定義
+-------------------------------- */
+:root {
+	/* 色 */
+	--bg-color: #f9f9f9;
+	--white: #ffffff;
+	--black: #000000;
+	--gray: #333;
+	--blue: #169dcb;
+	--blue-hover: #8de4ff;
+	--orange: #dcdc30;
+	--orange-hover: #ffd88b;
+	--red: #dc1b2e;
+	--red-hover: #ff988f;
+	--accent: #d92727;
+
+	/* 背景色の透過（hover用） */
+	--blue-hover-bg: rgba(22, 157, 203, 0.7);
+	--orange-hover-bg: rgba(220, 220, 48, 0.7);
+	--red-hover-bg: rgba(220, 27, 46, 0.7);
+	--reset-bg-hover: rgba(22, 157, 203, 0.7);
+
+	/* フォント */
+	--font-main: "DotGothic16", sans-serif;
+
+	/* フォントサイズ */
+	--font-large: 40px;
+	--font-medium: 30px;
+	--font-button: 20px;
+	--font-button-sp: 20px;
+	--font-result: 30px;
+
+	/* 余白 */
+	--space-default: 20px;
+	--space-small: 10px;
+	--speech-padding: 16px;
+
+	/* 枠線 */
+	--border-thick: 5px;
+	--border-thin: 2px;
+	--radius-large: 50px;
+	--radius-medium: 20px;
+	--radius-small: 10px;
+
+	/* アニメーション */
+	--animation-duration: 1s;
+
+	/* スコア表示 */
+	--score-bg: var(--white);
+	--score-text: var(--gray);
+	--score-highlight: #007bff;
+	--score-font-size: 20px;
+	--score-radius: var(--radius-small);
+	--score-padding: 10px 20px;
+	--score-gap-pc: 2rem;
+	--score-gap-sp: 0.5rem;
+	--score-margin: 0 20px;
+
+	/* リセットボタン */
+	--reset-size: 100px;
+	--reset-bg: #169dcb;
+	--reset-color: #fff;
+	--reset-font-size: 18px;
+	--reset-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	--reset-hover-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+	--reset-transition: 0.3s;
+}
+
+/* --------------------------------
+  Base Styles
+-------------------------------- */
+body {
+	font-family: var(--font-main);
+	text-align: center;
+	background-color: var(--bg-color);
+	padding: var(--space-default);
+	height: 100vh;
+	background-image: url(/img/bg-dot.png);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+img {
+	max-width: 70%;
+	height: auto;
+}
+@media screen and (max-width: 768px) {
+	body {
+		padding: var(--space-small);
+	}
+}
+
+/* --------------------------------
+  見出し（吹き出し）
+-------------------------------- */
+.speechBubble {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 20px;
+	padding: var(--speech-padding);
+	border: var(--border-thick) solid var(--black);
+	border-radius: var(--radius-large);
+	background-color: var(--white);
+	text-align: center;
+	font-size: var(--font-large);
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.1em;
+	color: var(--black);
+}
+.speechBubble::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	border-style: solid;
+	border-width: 30px 15px 0 15px;
+	border-color: var(--black) transparent transparent;
+	translate: -50% 100%;
+}
+.speechBubble::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	border-style: solid;
+	border-width: 18.8px 9.4px 0 9.4px;
+	border-color: var(--white) transparent transparent;
+	translate: -50% 100%;
+}
+.br-sp {
+	display: none;
+}
+@media screen and (max-width: 768px) {
+	.speechBubble {
+		font-size: 25px;
+	}
+	.br-sp {
+		display: inline;
+	}
+}
+
+/* --------------------------------
+  container
+-------------------------------- */
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
+	padding: var(--space-default);
+}
+@media screen and (max-width: 768px) {
+	.container {
+		padding: 15px;
+	}
+}
+
+/* --------------------------------
+  じゃんけんTOP見出し画像
+-------------------------------- */
+.jkp {
+	width: 60%;
+	height: auto;
+	margin: 0 auto 20px auto;
+}
+@media screen and (max-width: 768px) {
+	.jkp {
+		width: 80%;
+	}
+}
+
+/* --------------------------------
+  CPUのじゃんけん画像
+-------------------------------- */
+.cpu-hand img {
+	width: auto;
+	height: 300px;
+	margin: 30px 0;
+}
+@media screen and (max-width: 768px) {
+	.cpu-hand img {
+		height: 200px;
+		margin: 15px 0;
+	}
+}
+
+/* --------------------------------
+  ぐー・ちょき・ぱーButton
+-------------------------------- */
+.buttons {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: var(--space-default);
+}
+.buttons button {
+	font-size: var(--font-button);
+	font-weight: bold;
+	color: azure;
+	margin: var(--space-small);
+	padding: 15px 90px;
+	cursor: pointer;
+	border-radius: var(--radius-medium);
+}
+.buttons .gu {
+	background-color: var(--blue);
+}
+.buttons .gu:hover {
+	background-color: var(--blue-hover-bg);
+}
+.buttons .choki {
+	background-color: var(--orange);
+}
+.buttons .choki:hover {
+	background-color: var(--orange-hover-bg);
+}
+.buttons .pa {
+	background-color: var(--red);
+}
+.buttons .pa:hover {
+	background-color: var(--red-hover-bg);
+}
+@media screen and (max-width: 768px) {
+	.buttons button {
+		font-size: var(--font-button-sp);
+		padding: 10px 20px;
+		border-radius: var(--radius-small);
+	}
+}
+
+/* --------------------------------
+  もう一回勝負！Button
+-------------------------------- */
+#reset-button {
+	text-align: center;
+	text-decoration: none;
+	margin: 0 auto;
+	padding: 10px 20px;
+	font-weight: bold;
+	font-size: var(--font-button);
+	border: var(--border-thick) solid var(--gray);
+	background: var(--white);
+	color: var(--gray);
+	border-radius: var(--radius-medium);
+	transition: 0.5s;
+	animation: move_c var(--animation-duration) infinite;
+}
+#reset-button :hover {
+	color: var(--accent);
+	border: var(--border-thick) solid var(--accent);
+	background: var(--white);
+}
+@media screen and (max-width: 768px) {
+	#reset-button {
+		font-size: var(--font-button-sp);
+		padding: 0.6rem 1.5rem;
+		border-width: var(--border-thin);
+		border-radius: var(--radius-small);
+		margin: 0 auto;
+	}
+}
+
+/* --------------------------------
+  アニメーション
+-------------------------------- */
+@keyframes move_c {
+	0% {
+		transform: translate(0px, 0);
+	}
+	50% {
+		transform: translate(0px, 0) rotateZ(5deg);
+	}
+}
+
+/* --------------------------------
+  結果表示
+-------------------------------- */
+#result {
+	margin: 20px 0px;
+	font-size: var(--font-result);
+	font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+	#result {
+		font-size: 25px;
+		margin: 10px 0;
+	}
+}
+
+/* --------------------------------
+  RESETボタン
+-------------------------------- */
+#count-reset {
+	position: fixed;
+	top: 30px;
+	right: 30px;
+	z-index: 999;
+	width: var(--reset-size);
+	height: var(--reset-size);
+	border-radius: 50%;
+	background-color: var(--reset-bg);
+	color: var(--reset-color);
+	font-size: var(--reset-font-size);
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	box-shadow: var(--reset-shadow);
+	transition: background-color var(--reset-transition), box-shadow var(--reset-transition),
+		transform var(--reset-transition);
+}
+#count-reset:hover {
+	background-color: var(--reset-bg-hover);
+	box-shadow: var(--reset-hover-shadow);
+	transform: scale(1.05);
+}
+@media screen and (max-width: 768px) {
+	#count-reset {
+		top: auto;
+		bottom: 10px;
+		right: 10px;
+		width: 70px;
+		height: 70px;
+		font-size: 16px;
+	}
+}
+
+/* --------------------------------
+  スコア
+-------------------------------- */
+.score-board {
+	display: flex;
+	justify-content: center;
+	gap: var(--score-gap-pc);
+	background-color: var(--score-bg);
+	padding: var(--score-padding);
+	margin: var(--score-margin);
+	border-radius: var(--score-radius);
+	font-size: var(--score-font-size);
+	border: var(--border-thin) solid var(--gray);
+}
+.score {
+	color: var(--score-text);
+	font-weight: bold;
+}
+.score span {
+	color: var(--score-highlight);
+}
+@media screen and (max-width: 768px) {
+	.score-board {
+		flex-direction: column;
+		gap: var(--score-gap-sp);
+	}
+}
